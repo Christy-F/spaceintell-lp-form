@@ -17,12 +17,12 @@ export default function Hero() {
   const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative h-[100vh] flex flex-col overflow-hidden bg-ink"
     >
       {/* Deep Parallax Background */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0 w-full h-[120%]"
         style={{ y: yBg }}
       >
@@ -45,7 +45,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Content — Parallax Text */}
-      <motion.div 
+      <motion.div
         className="relative z-10 flex-1 flex flex-col justify-center w-full px-6 md:px-12 pt-32"
         style={{ y: yText, opacity: opacityText }}
       >
@@ -68,7 +68,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[64px] md:text-[110px] lg:text-[130px] font-light text-white leading-[0.95] tracking-[-0.04em] mb-10 w-[110vw] max-w-none"
+            className="text-[54px] md:text-[80px] lg:text-[90px] font-light text-white leading-[0.95] tracking-[-0.04em] mb-10 w-[110vw] max-w-none"
           >
             Grade-A space, <br />
             <span className="text-amber">built around you.</span>
@@ -83,7 +83,7 @@ export default function Hero() {
             <a href="#enquire" className="btn-primary">
               Get a Proposal
             </a>
-            <p className="text-[14px] md:text-[16px] font-light text-white/50 max-w-[40ch] leading-relaxed">
+            <p className="text-[14px] md:text-[14px] font-medium text-white/90 max-w-[40ch] leading-relaxed drop-shadow-md">
               Delivered under one accountable framework, backed by 22 years of execution discipline.
             </p>
           </motion.div>
@@ -102,7 +102,7 @@ export default function Hero() {
               { left: '90%', bottom: '50%' }
             ];
             const pos = positions[i];
-            
+
             return (
               <motion.div
                 key={i}
@@ -112,10 +112,10 @@ export default function Hero() {
                 className="absolute flex flex-col items-start"
                 style={{ left: pos.left, bottom: pos.bottom }}
               >
-                <span className="text-[28px] lg:text-[40px] font-bold text-amber leading-none tracking-tight">
+                <span className="text-[28px] lg:text-[40px] font-bold text-amber leading-none tracking-tight drop-shadow-lg">
                   {stat.value}
                 </span>
-                <span className="text-[9px] text-white/50 uppercase tracking-[0.2em] mt-2 whitespace-nowrap">
+                <span className="text-[10px] md:text-[11px] font-semibold text-white/90 uppercase mt-2 whitespace-nowrap drop-shadow-md">
                   {stat.label}
                 </span>
               </motion.div>

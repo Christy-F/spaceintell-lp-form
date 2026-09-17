@@ -32,18 +32,23 @@ export default function InventoryAcrossCorridor() {
 
   return (
     <section id="inventory" className="bg-ink pt-[100px] pb-[150px] overflow-hidden" onMouseMove={handleMouseMove}>
+      <div className="section-wrap mb-16">
+        <h2 className="text-[40px] md:text-[60px] font-light text-white leading-tight tracking-tight">
+          Inventory Across Corridor
+        </h2>
+      </div>
       {/* ── Featured Parks (Asymmetric Masonry & Layered Typography) ── */}
       <div className="w-full relative">
         {featuredParks.map((park, idx) => {
           const isEven = idx % 2 === 0;
-          
+
           // Use framer-motion hooks for scroll parallax per image
           const { scrollYProgress } = useScroll();
           // We will just use standard framer-motion props here to keep it clean
-          
+
           return (
             <div key={park.id} className="relative w-full py-[100px] md:py-[200px] min-h-[80vh] flex items-center">
-              
+
               {/* Massive Background Typography Layer */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-20 overflow-hidden">
                 <h3 className="text-[120px] md:text-[220px] font-bold text-white whitespace-nowrap tracking-tighter leading-none select-none">
@@ -53,9 +58,9 @@ export default function InventoryAcrossCorridor() {
 
               {/* Foreground Image & Content */}
               <div className={`relative z-10 w-full flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-0`}>
-                
+
                 {/* Image bleeding off the edge */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
@@ -71,14 +76,14 @@ export default function InventoryAcrossCorridor() {
                   />
                   {/* Legibility Guardrail: Dark scrim at bottom/edges */}
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none" />
-                  
+
                   <div className="img-placeholder-badge !bottom-8 !left-8">
                     Sample imagery<br />Pending site photography
                   </div>
                 </motion.div>
 
                 {/* Content Block overlapping the image */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -92,7 +97,7 @@ export default function InventoryAcrossCorridor() {
                         {park.status}
                       </span>
                     </div>
-                    
+
                     <h4 className="text-[32px] md:text-[44px] font-light text-white leading-[1.1] tracking-tight mb-8">
                       {park.name.replace("Casagrand Industrial Park — ", "")}
                     </h4>

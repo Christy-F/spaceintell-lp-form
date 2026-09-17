@@ -31,16 +31,13 @@ export default function WhyCasaGrand() {
           className="relative w-full h-[400px] lg:h-[600px]"
         >
           <Image
-            src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1200&auto=format&fit=crop"
+            src="/asset/img/industrial_banner.jpg"
             alt="Casagrand Framework"
             fill
             unoptimized
             className="object-cover grayscale opacity-80"
           />
           <div className="absolute inset-0 bg-paper/20 mix-blend-overlay" />
-          <div className="img-placeholder-badge !bottom-6 !left-6">
-            Sample imagery
-          </div>
         </motion.div>
 
         {/* Right: Editorial Text */}

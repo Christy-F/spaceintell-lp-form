@@ -38,7 +38,7 @@ export default function Navbar() {
 
           {/* Right Action CTA */}
           <div className="flex items-center">
-            <a href="#enquire" className="btn-primary">
+            <a href="#enquire" className="bg-amber hover:bg-amber-dark text-ink font-semibold px-6 py-2.5 text-[12px] tracking-wide uppercase transition-colors duration-300 rounded-[2px]">
               Get a Proposal
             </a>
           </div>

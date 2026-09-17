@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { motion, useInView, animate } from "framer-motion";
+import { motion, useInView, animate, AnimatePresence } from "framer-motion";
 import { tenantLogos } from "@/data/logos";
 import { trustStats } from "@/data/stats";
 
@@ -9,7 +9,7 @@ import { trustStats } from "@/data/stats";
 const CountUpNumeral = ({ value }: { value: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  
+
   const prefixMatch = value.match(/^[^0-9]+/);
   const prefix = prefixMatch ? prefixMatch[0] : "";
   const suffix = value.replace(/^[^0-9]+|[0-9,]/g, "");
@@ -44,15 +44,13 @@ const CountUpNumeral = ({ value }: { value: string }) => {
 export default function TrustSection() {
   return (
     <section className="bg-paper py-[150px] overflow-hidden">
-      
+
       {/* BESPOKE SINGLE-ROW ANCHORED STATS */}
-      <div className="w-full mb-[200px]">
+      {/* <div className="w-full mb-[200px]">
         <div className="section-wrap">
           
-          {/* DESKTOP VIEW: Synchronized Grid for perfect alignment & gaps */}
           <div className="hidden md:grid grid-cols-[auto_auto_auto_auto] justify-between border-b border-ink/10 pb-16 gap-y-4">
             
-            {/* ROW 1: Amber Accents */}
             {trustStats.map((_, i) => (
               <motion.div 
                 key={`tick-${i}`} 
@@ -66,7 +64,6 @@ export default function TrustSection() {
               </motion.div>
             ))}
 
-            {/* ROW 2: Numerals */}
             {trustStats.map((stat, i) => {
               const isAnchor = i === 1; // 6M+
               
@@ -86,7 +83,6 @@ export default function TrustSection() {
               );
             })}
 
-            {/* ROW 3: Labels */}
             {trustStats.map((stat, i) => (
               <motion.div
                 key={`label-${i}`}
@@ -101,7 +97,6 @@ export default function TrustSection() {
             ))}
           </div>
 
-          {/* MOBILE VIEW: Stacked Flex Col (Grid row separation breaks on mobile) */}
           <div className="flex flex-col md:hidden gap-16 border-b border-ink/10 pb-16">
             {trustStats.map((stat, i) => {
               const isAnchor = i === 1;
@@ -127,43 +122,80 @@ export default function TrustSection() {
           </div>
 
         </div>
-      </div>
+      </div> */}
 
       <div className="section-wrap">
         {/* Occupants Logo Lockups */}
         <div className="border-t border-line pt-24">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
             <h2 className="text-[32px] md:text-[44px] font-light text-ink leading-tight max-w-[20ch]">
-              Trusted by the world's most demanding operators.
+              Trusted by India's Leading Manufacturers &amp; Logistics Operation
             </h2>
             <p className="text-[14px] text-steel/70 max-w-[40ch] font-light">
               From Fortune 500 electronics manufacturers to leading 3PL providers, Casagrand delivers the infrastructure required for seamless, scalable operations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-            {tenantLogos.map((cat, catIdx) => (
-              <div key={catIdx} className="flex flex-col">
-                <h4 className="text-[10px] font-semibold uppercase tracking-widest text-ink/60 mb-8 pb-4 border-b border-line">
-                  {cat.category}
-                </h4>
-                <div className="flex flex-col gap-4">
-                  {cat.companies.map((company, cIdx) => (
-                    <motion.div
-                      key={company}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: (catIdx * 0.1) + (cIdx * 0.05) }}
-                    >
-                      <span className="logo-placeholder w-full justify-start hover:pl-8">
-                        {company}
-                      </span>
-                    </motion.div>
-                  ))}
+          {/* TABS */}
+          {/* KINETIC MARQUEE LAYOUT */}
+          <div className="w-full relative py-12 overflow-hidden flex flex-col gap-8 md:gap-12">
+            <style>{`
+              @keyframes marquee-left {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+              @keyframes marquee-right {
+                0% { transform: translateX(-50%); }
+                100% { transform: translateX(0); }
+              }
+              .animate-marquee-left {
+                animation: marquee-left 40s linear infinite;
+              }
+              .animate-marquee-right {
+                animation: marquee-right 40s linear infinite;
+              }
+              .pause-on-hover:hover {
+                animation-play-state: paused;
+              }
+            `}</style>
+            
+            {tenantLogos.map((cat, idx) => {
+              // Duplicate the array multiple times to ensure the marquee never runs out of content
+              const repeatedCompanies = [...cat.companies, ...cat.companies, ...cat.companies, ...cat.companies];
+              const isLeft = idx % 2 === 0;
+
+              return (
+                <div key={cat.category} className="flex flex-col relative w-full overflow-hidden">
+                  <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
+                  <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
+                  
+                  <div className="mb-4 md:mb-6 pl-4 md:pl-8 flex items-center gap-4 relative z-20">
+                     <h4 className="text-[13px] md:text-[15px] font-bold tracking-[0.15em] uppercase text-ink/70">
+                       {cat.category}
+                     </h4>
+                     <div className="h-px bg-line flex-1 max-w-[200px]" />
+                  </div>
+                  
+                  <div className={`flex w-max ${isLeft ? 'animate-marquee-left' : 'animate-marquee-right'} pause-on-hover`}>
+                    {repeatedCompanies.map((company, cIdx) => {
+                      const initials = company.split(/[\s/()]+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join("");
+                      return (
+                        <div key={`${company}-${cIdx}`} className="flex items-center group cursor-default px-2 md:px-3">
+                          <div className="border border-line bg-[#FAF8F4] pl-2 pr-6 md:pr-8 py-2 rounded-[2px] transition-all duration-500 group-hover:border-amber group-hover:shadow-md flex items-center gap-4">
+                            <div className="w-[36px] h-[36px] shrink-0 bg-ink rounded-[2px] flex items-center justify-center text-paper font-semibold tracking-wider text-[14px] transition-colors duration-500 group-hover:bg-amber group-hover:text-ink">
+                              {initials}
+                            </div>
+                            <span className="text-[14px] md:text-[16px] font-semibold text-ink/90 tracking-wide whitespace-nowrap transition-colors duration-500 group-hover:text-amber">
+                              {company}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

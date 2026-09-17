@@ -1,0 +1,48 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_8891_33048)">
+<mask id="mask0_8891_33048" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+<path d="M100 0H0V100H100V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_8891_33048)">
+<path d="M70.7047 68.3271V61.6795L64.9908 55.9656H31.1453L24.1035 60.3615H19.5938" stroke="black" stroke-width="4" stroke-miterlimit="10"/>
+<path d="M88.9338 60.5381L87.3123 57.2568L80.9123 54.8926L69.0078 59.9834" stroke="black" stroke-width="4" stroke-miterlimit="10"/>
+<path d="M24.1094 71.2285V60.3615" stroke="black" stroke-width="4" stroke-miterlimit="10"/>
+<path d="M56.9688 62.2578V68.3271" stroke="black" stroke-width="4" stroke-miterlimit="10"/>
+<path d="M84.107 74.0498L81.6875 69.1537" stroke="black" stroke-width="4" stroke-miterlimit="10"/>
+<path d="M50.8537 60.8486H33.5625" stroke="black" stroke-width="4" stroke-miterlimit="10" stroke-dasharray="20 13.33 20 13.33 466.67 20 13.33 20"/>
+<mask id="mask1_8891_33048" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+<path d="M0 7.62939e-06H100V100H0V7.62939e-06Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_8891_33048)">
+<path d="M1.46875 88.6436H15.6939V60.3613H1.46875V88.6436Z" stroke="black" stroke-width="4" stroke-miterlimit="10"/>
+</g>
+<path d="M10.7422 63.8389V79.6592" stroke="black" stroke-width="4" stroke-miterlimit="10" stroke-dasharray="20 13.33 20 13.33 466.67 20 13.33 20"/>
+<mask id="mask2_8891_33048" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+<path d="M0 7.62939e-06H100V100H0V7.62939e-06Z" fill="white"/>
+</mask>
+<g mask="url(#mask2_8891_33048)">
+<path d="M19.5938 80.7826H24.1035L52.5143 87.5654L98.0238 68.0924L95.4348 62.8529L89.0348 60.4887L70.7047 68.3273H44.6617" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M40.3748 30.8137C40.3748 41.5594 31.6637 50.2705 20.9178 50.2705C10.1721 50.2705 1.46094 41.5594 1.46094 30.8137C1.46094 20.0678 10.1721 11.3566 20.9178 11.3566C31.6637 11.3566 40.3748 20.0678 40.3748 30.8137Z" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M35.6391 30.8133C35.6391 38.9418 29.0496 45.5312 20.9211 45.5312C12.7924 45.5312 6.20312 38.9418 6.20312 30.8133C6.20312 22.6846 12.7924 16.0953 20.9211 16.0953C29.0496 16.0953 35.6391 22.6846 35.6391 30.8133Z" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M20.9141 35.4717V21.4238" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M20.9141 19.2383V16.0953" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M20.9141 45.5312V42.3883" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M32.4922 30.8135H35.6352" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M6.20312 30.8135H9.34609" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M16.9609 30.8135H28.7535" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M44.2812 35.1035H67.1791V26.5229H44.2812" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M98.5277 26.5228H73.3359V35.1035H98.5277V26.5228Z" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M73.3402 23.699H67.1797V37.9268H73.3402V23.699Z" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M77.9609 22.6162V12.6248H84.2313V18.6936H90.5018V12.6248H96.7723V22.6162" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path d="M46.3438 30.8135H62.5586" stroke="black" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="20 13.33 20 13.33 733.33 20 13.33 20"/>
+<path d="M80.8828 30.8135H94.5619" stroke="black" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="20 13.33 20 13.33 20 13.33"/>
+<path d="M85.0469 22.7012H92.0523" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_8891_33048">
+<rect width="100" height="100" fill="white"/>
+</clipPath>
+</defs>
+</svg>

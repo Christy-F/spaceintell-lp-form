@@ -41,7 +41,7 @@ export const tenantLogos: LogoCategory[] = [
     ],
   },
   {
-    category: "Renewable Energy · Logistics · Others",
+    category: "Renewable Energy · Logistics · Software",
     companies: [
       "Acciona Wind",
       "Eickhoff Wind Energy",

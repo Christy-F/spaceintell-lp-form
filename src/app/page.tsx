@@ -17,7 +17,7 @@ export default function Home() {
         <Hero />
         <WhyCasaGrand />
         <InventoryAcrossCorridor />
-        {/* <TrustSection /> */}
+        <TrustSection />
         <Locations />
         <BuiltToSuit />
         <ConversionSection />
