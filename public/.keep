@@ -1,0 +1,2 @@
+/* Fix .section-rule utility — must be inside @layer utilities since it uses absolute positioning */
+/* This is a standalone patch; the class is defined in globals.css */
