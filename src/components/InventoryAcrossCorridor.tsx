@@ -76,10 +76,6 @@ export default function InventoryAcrossCorridor() {
                   />
                   {/* Legibility Guardrail: Dark scrim at bottom/edges */}
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none" />
-
-                  <div className="img-placeholder-badge !bottom-8 !left-8">
-                    Sample imagery<br />Pending site photography
-                  </div>
                 </motion.div>
 
                 {/* Content Block overlapping the image */}
@@ -190,17 +186,14 @@ export default function InventoryAcrossCorridor() {
               top: mousePos.y - 100,
             }}
           >
-            {/* Generic placeholder since we don't have secondary park images */}
+            {/* Generic preview image */}
             <Image
-              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=640&auto=format&fit=crop"
+              src="/asset/img/project_1.jpg"
               alt="Preview"
               fill
               className="object-cover grayscale contrast-125"
             />
             <div className="absolute inset-0 bg-ink/20 mix-blend-multiply" />
-            <div className="absolute bottom-3 left-3 bg-ink/90 text-amber text-[8px] uppercase tracking-widest px-2 py-1">
-              Sample Imagery
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
