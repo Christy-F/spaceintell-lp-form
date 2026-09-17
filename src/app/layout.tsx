@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
   },
+  icons: {
+    icon: "/asset/img/footer_logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
