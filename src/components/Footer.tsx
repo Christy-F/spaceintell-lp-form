@@ -40,7 +40,7 @@ export default function Footer() {
              */}
             <div className="relative w-full max-w-[180px]">
               <Image
-                src="/spaceintell-logo.png"
+                src="/casagrandwarehouse_logo.webp"
                 alt="Casagrand Industrial & Warehousing"
                 width={180}
                 height={45}

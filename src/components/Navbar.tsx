@@ -3,18 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "Industrial Spaces", href: "#inventory" },
-  { label: "Locations", href: "#locations" },
-  { label: "Why Casagrand", href: "#why" },
-  { label: "Contact", href: "#enquire" },
-];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -36,7 +27,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center shrink-0">
             <Image
-              src="/spaceintell-logo.png"
+              src="/casagrandwarehouse_logo.webp"
               alt="Casagrand Industrial & Warehousing"
               width={180}
               height={44}
@@ -45,63 +36,14 @@ export default function Navbar() {
             />
           </a>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-[13px] font-medium text-white/60 hover:text-white/90 transition-colors tracking-wide"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a href="#enquire" className="btn-primary ml-2">
+          {/* Right Action CTA */}
+          <div className="flex items-center">
+            <a href="#enquire" className="btn-primary">
               Get a Proposal
             </a>
-          </nav>
-
-          {/* Mobile toggle */}
-          <button
-            className="md:hidden text-white/70 hover:text-white transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          </div>
         </div>
       </motion.header>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-x-0 top-[68px] z-40 bg-ink border-b border-white/[0.07] px-6 pb-6"
-        >
-          <nav className="flex flex-col gap-5 pt-5">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-base text-white/70 hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#enquire"
-              onClick={() => setMobileOpen(false)}
-              className="btn-primary text-center mt-2"
-            >
-              Get a Proposal
-            </a>
-          </nav>
-        </motion.div>
-      )}
     </>
   );
 }
