@@ -18,7 +18,7 @@
     font-family: var(--font-inter), Inter, sans-serif;
     font-size: 17px;
     line-height: 1.7;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -111,7 +111,7 @@
   /* Outline Typography for Locations */
   .text-outline {
     color: transparent;
-    -webkit-text-stroke: 2px #5B5F58;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .text-outline:hover, .text-outline.active {

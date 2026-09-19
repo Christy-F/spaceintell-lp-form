@@ -52,8 +52,8 @@ export default function BuiltToSuit() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="min-h-[50vh] lg:min-h-[80vh] flex flex-col justify-center px-6 md:px-16 py-20 lg:py-0 border-t border-line lg:border-t-0 lg:border-b last:border-b-0 relative overflow-hidden"
             >
-              {/* Oversized background index number bleeding off the right edge */}
-              <div className="absolute top-1/2 -translate-y-1/2 -right-10 md:-right-20 pointer-events-none select-none opacity-5">
+              {/* Oversized background index number */}
+              <div className="absolute top-1/2 -translate-y-1/2 right-0 md:right-4 pointer-events-none select-none opacity-5">
                 <span className="text-[200px] md:text-[400px] font-bold text-ink leading-none tracking-tighter">
                   0{idx + 1}
                 </span>

@@ -17,10 +17,11 @@ export default function Hero() {
   const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section
-      ref={containerRef}
-      className="relative h-[100vh] flex flex-col overflow-hidden bg-ink"
-    >
+    <>
+      <section
+        ref={containerRef}
+        className="relative h-[100vh] flex flex-col overflow-hidden bg-ink"
+      >
       {/* Deep Parallax Background */}
       <motion.div
         className="absolute inset-0 z-0 w-full h-[120%]"
@@ -68,7 +69,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[54px] md:text-[80px] lg:text-[90px] font-light text-white leading-[0.95] tracking-[-0.04em] mb-10 w-[110vw] max-w-none"
+            className="text-[54px] md:text-[80px] lg:text-[90px] font-light text-white leading-[0.95] tracking-[-0.04em] mb-10 w-full md:w-[110vw] max-w-none"
           >
             Grade-A space, <br />
             <span className="text-amber">built around you.</span>
@@ -80,9 +81,6 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col md:flex-row items-start md:items-center gap-8"
           >
-            <a href="#enquire" className="btn-primary">
-              Get a Proposal
-            </a>
             <p className="text-[14px] md:text-[14px] font-medium text-white/90 max-w-[40ch] leading-relaxed drop-shadow-md">
               Delivered under one accountable framework, backed by 22 years of execution discipline.
             </p>
@@ -90,11 +88,12 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Scattered Floating Stats (Asymmetric layout) */}
+      {/* Stats Wrapper (Desktop Only) */}
       <div className="absolute bottom-10 left-0 w-full z-20 px-6 md:px-12 pointer-events-none hidden md:block">
+        
+        {/* Scattered Floating Stats */}
         <div className="relative w-full h-[150px] max-w-[1400px] mx-auto">
           {heroStats.map((stat: { value: string; label: string }, i: number) => {
-            // Scatter logic
             const positions = [
               { left: '40%', bottom: '0%' },
               { left: '60%', bottom: '40%' },
@@ -124,5 +123,29 @@ export default function Hero() {
         </div>
       </div>
     </section>
+
+    {/* Mobile Stats Strip (Rendered sequentially below Hero) */}
+    <div className="md:hidden w-full bg-ink py-12 px-6 border-b border-white/5 relative z-20">
+      <div className="grid grid-cols-2 gap-x-4 gap-y-8 max-w-sm mx-auto">
+        {heroStats.map((stat: { value: string; label: string }, i: number) => (
+          <motion.div
+            key={`mob-strip-${i}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+            className="flex flex-col items-start"
+          >
+            <span className="text-[32px] font-bold text-amber leading-none tracking-tight">
+              {stat.value}
+            </span>
+            <span className="text-[10px] font-semibold text-white/60 uppercase mt-2 text-balance leading-relaxed">
+              {stat.label}
+            </span>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+    </>
   );
 }

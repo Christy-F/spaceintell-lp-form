@@ -41,9 +41,9 @@ const FloatingInput = ({
       )}
 
       {/* Floating label */}
-      <label className={`absolute left-0 top-3 text-[14px] text-ink/40 font-light transition-all pointer-events-none
+      <label className={`absolute left-0 transition-all pointer-events-none
+        ${value ? '-top-1 text-[10px] font-medium text-ink/60' : 'top-3 text-[14px] font-light text-ink/40'}
         peer-focus:-top-1 peer-focus:text-[10px] peer-focus:font-medium peer-focus:text-amber
-        peer-not-placeholder-shown:-top-1 peer-not-placeholder-shown:text-[10px] peer-not-placeholder-shown:font-medium
         ${error ? '!text-red-600' : ''}
       `}>
         {label} {required && <span className="text-amber ml-1">*</span>}
@@ -72,7 +72,13 @@ export default function ConversionSection() {
     if (!formData.name) newErrors.name = "Required";
     if (!formData.designation) newErrors.designation = "Required";
     if (!formData.company) newErrors.company = "Required";
-    if (!formData.phone) newErrors.phone = "Required";
+    if (!formData.phone) {
+      newErrors.phone = "Required";
+    } else if (formData.phone.length !== 10) {
+      newErrors.phone = "Must be exactly 10 digits";
+    } else if (!/^[6-9]/.test(formData.phone)) {
+      newErrors.phone = "Invalid Indian mobile number";
+    }
 
     if (!formData.email) {
       newErrors.email = "Required";
@@ -97,10 +103,19 @@ export default function ConversionSection() {
 
     setSubmitting(true);
     try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const payload = {
+        ...formData,
+        utm_source: urlParams.get("utm_source"),
+        utm_medium: urlParams.get("utm_medium"),
+        utm_campaign: urlParams.get("utm_campaign"),
+        utm_name: urlParams.get("utm_name")
+      };
+
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Server error");
       setSuccess(true);
@@ -184,7 +199,7 @@ export default function ConversionSection() {
                   <FloatingInput name="company" label="Company Name" required value={formData.company} onChange={(v) => handleChange("company", v)} error={errors.company} />
                   <FloatingInput name="designation" label="Designation" required value={formData.designation} onChange={(v) => handleChange("designation", v)} error={errors.designation} />
                   
-                  <FloatingInput name="phone" label="Phone Number" required value={formData.phone} onChange={(v) => handleChange("phone", v)} error={errors.phone} />
+                  <FloatingInput name="phone" label="Phone Number" required value={formData.phone} onChange={(v) => handleChange("phone", v.replace(/\D/g, '').slice(0, 10))} error={errors.phone} />
                   
                   {/* Select: Type of Facility */}
                   <div className="relative pt-4 pb-1 w-full">

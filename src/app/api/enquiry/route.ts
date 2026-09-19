@@ -7,13 +7,41 @@ export async function POST(request: NextRequest) {
 
     // ── Lead routing ─────────────────────────────────────────────────────────
     // Target is configurable via environment variable: LEAD_ROUTING_TARGET
-    // Supported values: "resend" (default), "webhook", "log"
+    // Supported values: "resend" (default), "webhook", "log", "mysql"
     // Set the target and credentials in .env.local before deploying.
     // ─────────────────────────────────────────────────────────────────────────
 
     const target = process.env.LEAD_ROUTING_TARGET ?? "log";
 
-    if (target === "resend") {
+    if (target === "mysql") {
+      const { getDbPool } = await import("@/lib/db");
+      const pool = getDbPool();
+      
+      const query = `
+        INSERT INTO leads 
+        (name, email, company, designation, phone, facility_type, engagement_model, area_requirement, message, utm_source, utm_medium, utm_campaign, utm_name) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `;
+      
+      const values = [
+        body.name, 
+        body.email, 
+        body.company, 
+        body.designation, 
+        body.phone, 
+        body.facilityType, 
+        body.model, 
+        body.area, 
+        body.message || "",
+        body.utm_source || null,
+        body.utm_medium || null,
+        body.utm_campaign || null,
+        body.utm_name || null
+      ];
+      
+      await pool.execute(query, values);
+      
+    } else if (target === "resend") {
       // Resend email notification
       // Required env vars: RESEND_API_KEY, LEAD_EMAIL_TO
       const { Resend } = await import("resend");

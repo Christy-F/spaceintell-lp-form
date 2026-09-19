@@ -145,7 +145,7 @@ export default function InventoryAcrossCorridor() {
               </div>
 
               {/* Desktop text */}
-              <div className="hidden md:block text-[14px] text-white/40 font-light max-w-[300px] text-right">
+              <div className="hidden md:block text-[14px] text-white/70 font-light max-w-[300px] text-right">
                 {park.industries}
               </div>
 

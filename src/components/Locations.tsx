@@ -27,7 +27,7 @@ export default function Locations() {
 
       <div className="section-wrap relative z-10">
         
-        <div className="flex items-center gap-4 mb-24 opacity-40">
+        <div className="flex items-center gap-4 mb-24 opacity-80">
           <span className="w-1.5 h-1.5 rounded-full bg-white" />
           <span className="text-[10px] font-semibold uppercase tracking-widest text-white">
             Strategic Corridors
@@ -50,7 +50,7 @@ export default function Locations() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                   {/* Name — Outline Text */}
                   <h3 
-                    className={`text-[40px] md:text-[80px] font-bold tracking-tight uppercase leading-none transition-all duration-500
+                    className={`text-[40px] md:text-[80px] font-bold tracking-tight uppercase leading-none transition-all duration-500 break-all sm:break-words
                       ${isActive ? 'text-amber' : 'text-outline'}
                     `}
                     style={isActive ? { WebkitTextStroke: "0px transparent" } : {}}
@@ -59,7 +59,7 @@ export default function Locations() {
                   </h3>
 
                   {/* Metadata block */}
-                  <div className={`transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-40'} text-right`}>
+                  <div className={`transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-70'} text-right`}>
                     <p className="text-[14px] text-white/80 font-medium mb-1">
                       {corridor.city}
                     </p>

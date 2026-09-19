@@ -4,7 +4,7 @@ export interface Park {
   location: string;
   corridor: string;
   status: "Ready to Occupy" | "Under Development" | "Upcoming";
-  statusColor: "green" | "amber" | "steel";
+  statusColor: "green" | "amber" | "steel" | "white/60";
   type: string;
   area?: string;
   access?: string;
@@ -120,7 +120,7 @@ export const parksData: Park[] = [
     location: "SIPCOT Vallam, Oragadam Corridor",
     corridor: "Oragadam / Walajabad",
     status: "Upcoming",
-    statusColor: "steel",
+    statusColor: "white/60",
     type: "SIPCOT Integrated Park",
     access: "Adjacent to SIPCOT Vallam; NH access",
     industries: "Auto, engineering, logistics",
