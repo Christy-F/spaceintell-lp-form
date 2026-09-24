@@ -5,7 +5,6 @@ import InventoryAcrossCorridor from "@/components/InventoryAcrossCorridor";
 import TrustSection from "@/components/TrustSection";
 import Locations from "@/components/Locations";
 import BuiltToSuit from "@/components/BuiltToSuit";
-import ConversionSection from "@/components/ConversionSection";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
 
@@ -20,7 +19,6 @@ export default function Home() {
         <TrustSection />
         <Locations />
         <BuiltToSuit />
-        <ConversionSection />
       </main>
       <Footer />
       <MobileBar />

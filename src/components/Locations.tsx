@@ -84,7 +84,11 @@ export default function Locations() {
                           <p className="text-[18px] md:text-[22px] font-light text-white/80 leading-relaxed text-balance">
                             {corridor.highlight}
                           </p>
-                          <a href="#inventory" className="inline-block mt-6 text-[11px] font-bold uppercase tracking-[0.15em] text-amber hover:text-white transition-colors">
+                          <a 
+                            href="#inventory" 
+                            onClick={(e) => e.stopPropagation()}
+                            className="inline-block mt-6 text-[11px] font-bold uppercase tracking-[0.15em] text-amber hover:text-white transition-colors"
+                          >
                             View Available Assets →
                           </a>
                         </div>

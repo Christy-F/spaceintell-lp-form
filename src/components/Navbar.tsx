@@ -23,15 +23,15 @@ export default function Navbar() {
           scrolled ? "py-3 shadow-panel" : "py-4"
         } bg-ink border-b border-white/[0.07]`}
       >
-        <div className="section-wrap flex items-center justify-between h-11">
+        <div className="section-wrap flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <a href="/" className="flex items-center shrink-0">
             <Image
               src="/casagrandwarehouse_logo.webp"
               alt="Casagrand Industrial & Warehousing"
-              width={180}
-              height={44}
-              className="h-8 w-auto"
+              width={220}
+              height={54}
+              className="h-10 md:h-12 w-auto"
               priority
             />
           </a>
