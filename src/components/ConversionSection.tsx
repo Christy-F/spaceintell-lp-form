@@ -143,20 +143,20 @@ export default function ConversionSection() {
   return (
     <section id="enquire" className="bg-paper border-t border-line min-h-screen flex items-center justify-center py-12 md:py-20 relative">
       <div className="section-wrap w-full">
-        
+
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
-          
+
           {/* Left Context Column - Merged Header and Text */}
           <div className="w-full lg:w-[40%] flex flex-col justify-center">
             <div className="flex items-center gap-4 mb-6">
               <span className="text-[10px] font-semibold uppercase tracking-widest text-ink/40">Proposal Request</span>
               <div className="w-2 h-2 rounded-full bg-amber" />
             </div>
-            
+
             <h2 className="text-[48px] lg:text-[72px] font-light text-ink leading-[0.95] tracking-tighter mb-8">
               Initiate a <br className="hidden lg:block" />discussion.
             </h2>
-            
+
             <p className="text-[16px] md:text-[18px] font-light text-ink/70 leading-snug max-w-[30ch]">
               Submit your requirements. Our industrial team will assemble a bespoke facility proposal aligned to your operation.
             </p>
@@ -189,18 +189,18 @@ export default function ConversionSection() {
               </motion.div>
             ) : (
               <form onSubmit={onSubmit} className="w-full block bg-white/50 backdrop-blur-sm p-6 md:p-10 rounded-2xl border border-ink/5 shadow-sm">
-                
+
                 {/* Ultra tightly packed 2-column grid */}
                 <div className="grid md:grid-cols-2 gap-x-10 gap-y-5">
-                  
+
                   <FloatingInput name="name" label="Full Name" required value={formData.name} onChange={(v) => handleChange("name", v)} error={errors.name} />
                   <FloatingInput name="email" label="Corporate Email" type="email" required value={formData.email} onChange={(v) => handleChange("email", v)} error={errors.email} />
-                  
+
                   <FloatingInput name="company" label="Company Name" required value={formData.company} onChange={(v) => handleChange("company", v)} error={errors.company} />
                   <FloatingInput name="designation" label="Designation" required value={formData.designation} onChange={(v) => handleChange("designation", v)} error={errors.designation} />
-                  
+
                   <FloatingInput name="phone" label="Phone Number" required value={formData.phone} onChange={(v) => handleChange("phone", v.replace(/\D/g, '').slice(0, 10))} error={errors.phone} />
-                  
+
                   {/* Select: Type of Facility */}
                   <div className="relative pt-4 pb-1 w-full">
                     <label className={`absolute left-0 -top-1 text-[10px] font-medium transition-colors ${errors.facilityType ? 'text-red-600' : 'text-ink/40'}`}>
@@ -267,7 +267,9 @@ export default function ConversionSection() {
                         onChange={(e) => handleChange("area", e.target.value)}
                       >
                         <option value="" className="text-ink/30">Select...</option>
-                        {["Below 10,000 sq. ft.", "10,000–30,000 sq. ft.", "30,000–1,00,000 sq. ft.", "Above 1,00,000 sq. ft."].map((o) => <option key={o} value={o}>{o}</option>)}
+                        {["25,000 - 50,000 sq. ft.", "50,000 - 75,000 sq. ft.", "75,000 - 1,00,000 sq. ft.", "1,00,000 above sq. ft."].map((o) => <option key={o} value={o}>{o}</option>)}
+
+                        {/* {["Below 10,000 sq. ft.", "10,000–30,000 sq. ft.", "30,000–1,00,000 sq. ft.", "Above 1,00,000 sq. ft."].map((o) => <option key={o} value={o}>{o}</option>)} */}
                       </select>
                       <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-ink/30">
                         <ChevronDown size={14} />
