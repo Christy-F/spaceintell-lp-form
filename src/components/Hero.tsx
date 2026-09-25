@@ -354,7 +354,7 @@ export default function Hero() {
                           onChange={(e) => handleChange("area", e.target.value)}
                         >
                           <option value="" className="text-ink/60 bg-white">Select...</option>
-                          {["Below 10,000 sq. ft.", "10,000–30,000 sq. ft.", "30,000–1,00,000 sq. ft.", "Above 1,00,000 sq. ft."].map((o) => <option key={o} value={o} className="text-black bg-white">{o}</option>)}
+                          {["25,000 - 50,000 sq. ft.", "50,000 - 75,000 sq. ft.", "75,000 - 1,00,000 sq. ft.", "1,00,000 above sq. ft."].map((o) => <option key={o} value={o} className="text-black bg-white">{o}</option>)}
                         </select>
                         <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-ink/40">
                           <ChevronDown size={14} />
