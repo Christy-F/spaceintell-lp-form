@@ -23,8 +23,8 @@ const FloatingInput = ({
           name={name}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className={`peer w-full bg-transparent text-white font-light text-[16px] pb-2 border-b transition-colors outline-none resize-none
-            ${error ? 'border-red-400 bg-red-400/10' : 'border-white/20 focus:border-amber'}
+          className={`peer w-full bg-transparent text-ink font-medium text-[16px] pb-2 border-b transition-colors outline-none resize-none
+            ${error ? 'border-red-500 bg-red-50' : 'border-ink/20 focus:border-amber'}
           `}
           placeholder=" "
           rows={1}
@@ -35,8 +35,8 @@ const FloatingInput = ({
           type={type}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className={`peer w-full bg-transparent text-white font-light text-[16px] pb-2 border-b transition-colors outline-none
-            ${error ? 'border-red-400 bg-red-400/10' : 'border-white/20 focus:border-amber'}
+          className={`peer w-full bg-transparent text-ink font-medium text-[16px] pb-2 border-b transition-colors outline-none
+            ${error ? 'border-red-500 bg-red-50' : 'border-ink/20 focus:border-amber'}
           `}
           placeholder=" "
         />
@@ -44,15 +44,15 @@ const FloatingInput = ({
 
       {/* Floating label */}
       <label className={`absolute left-0 transition-all pointer-events-none
-        ${value ? '-top-2 text-[12px] font-medium text-white/80' : 'top-3 text-[14px] font-light text-white/60'}
-        peer-focus:-top-2 peer-focus:text-[12px] peer-focus:font-medium peer-focus:text-amber
-        ${error ? '!text-red-400' : ''}
+        ${value ? '-top-2 text-[12px] font-semibold text-ink/80' : 'top-3 text-[14px] font-medium text-ink/60'}
+        peer-focus:-top-2 peer-focus:text-[12px] peer-focus:font-semibold peer-focus:text-amber
+        ${error ? '!text-red-500' : ''}
       `}>
         {label} {required && <span className="text-amber ml-1">*</span>}
       </label>
 
       {error && (
-        <div className="absolute -bottom-3 left-0 text-[10px] font-medium text-red-400 uppercase tracking-wider">
+        <div className="absolute -bottom-3 left-0 text-[10px] font-semibold text-red-500 uppercase tracking-wider">
           {error}
         </div>
       )}
@@ -256,13 +256,13 @@ export default function Hero() {
             >
               {success ? (
                 <div
-                  className="bg-black/70 p-8 rounded-2xl border border-white/10 shadow-2xl flex flex-col items-start"
+                  className="bg-white p-8 rounded-2xl border border-ink/10 shadow-2xl flex flex-col items-start"
                 >
-                  <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle2 size={24} className="text-white" />
+                  <div className="w-12 h-12 border-2 border-ink/20 rounded-full flex items-center justify-center mb-6 bg-green-50">
+                    <CheckCircle2 size={24} className="text-green-600" />
                   </div>
-                  <h3 className="text-[32px] md:text-[40px] font-light text-white mb-4">Request Secured.</h3>
-                  <p className="text-[16px] text-white/70 font-light max-w-[40ch] mb-8 leading-relaxed">
+                  <h3 className="text-[32px] md:text-[40px] font-medium text-ink mb-4">Request Secured.</h3>
+                  <p className="text-[16px] text-ink/70 font-medium max-w-[40ch] mb-8 leading-relaxed">
                     An executive from the industrial team will contact you shortly with preliminary site availability.
                   </p>
                   <button
@@ -270,16 +270,16 @@ export default function Hero() {
                       setSuccess(false);
                       setFormData({ name: "", designation: "", company: "", email: "", phone: "", facilityType: "", model: "", area: "", message: "" });
                     }}
-                    className="px-6 py-3 border border-white/20 text-white text-[12px] uppercase tracking-wider hover:bg-white/10 transition-colors rounded"
+                    className="px-6 py-3 border border-ink/20 text-ink text-[12px] font-bold uppercase tracking-wider hover:bg-ink/5 transition-colors rounded"
                   >
                     Submit Another Request
                   </button>
                 </div>
               ) : (
-                <form onSubmit={onSubmit} className="bg-black/70 p-6 sm:p-8 rounded-2xl border border-white/10 shadow-2xl w-full">
+                <form onSubmit={onSubmit} className="bg-white p-6 sm:p-8 rounded-2xl border border-ink/10 shadow-2xl w-full">
                   <div className="mb-6">
-                    <h3 className="text-[20px] font-light text-white">Initiate a discussion</h3>
-                    <p className="text-[12px] text-white/60 mt-1">Submit your requirements for a bespoke proposal.</p>
+                    <h3 className="text-[20px] font-medium text-ink">Initiate a discussion</h3>
+                    <p className="text-[12px] text-ink/60 mt-1 font-medium">Submit your requirements for a bespoke proposal.</p>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-x-6 gap-y-4">
@@ -292,76 +292,76 @@ export default function Hero() {
                     <FloatingInput name="phone" label="Phone Number" required value={formData.phone} onChange={(v) => handleChange("phone", v.replace(/\D/g, '').slice(0, 10))} error={errors.phone} />
 
                     <div className="relative pt-4 pb-1 w-full">
-                      <label className={`absolute left-0 -top-2 text-[12px] font-medium transition-colors ${errors.facilityType ? 'text-red-400' : 'text-white/80'}`}>
+                      <label className={`absolute left-0 -top-2 text-[12px] font-semibold transition-colors ${errors.facilityType ? 'text-red-500' : 'text-ink/80'}`}>
                         Type of Facility <span className="text-amber">*</span>
                       </label>
                       <div className="relative w-full">
                         <select
-                          className={`w-full bg-transparent text-white font-light text-[16px] pb-2 border-b outline-none transition-colors cursor-pointer appearance-none
-                          ${errors.facilityType ? 'border-red-400 bg-red-400/10' : 'border-white/20 focus:border-amber'}
+                          className={`w-full bg-transparent text-ink font-medium text-[16px] pb-2 border-b outline-none transition-colors cursor-pointer appearance-none
+                          ${errors.facilityType ? 'border-red-500 bg-red-50' : 'border-ink/20 focus:border-amber'}
                         `}
                           value={formData.facilityType}
                           onChange={(e) => handleChange("facilityType", e.target.value)}
                         >
-                          <option value="" className="text-black bg-white">Select...</option>
+                          <option value="" className="text-ink/60 bg-white">Select...</option>
                           {["Manufacturing facility", "Warehouse", "Both", "Not sure yet"].map((o) => <option key={o} value={o} className="text-black bg-white">{o}</option>)}
                         </select>
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-white/40">
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-ink/40">
                           <ChevronDown size={14} />
                         </div>
                       </div>
                       {errors.facilityType && (
-                        <div className="absolute -bottom-3 left-0 text-[10px] font-medium text-red-400 uppercase tracking-wider">
+                        <div className="absolute -bottom-3 left-0 text-[10px] font-semibold text-red-500 uppercase tracking-wider">
                           {errors.facilityType}
                         </div>
                       )}
                     </div>
 
                     <div className="relative pt-4 pb-1 w-full">
-                      <label className={`absolute left-0 -top-2 text-[12px] font-medium transition-colors ${errors.model ? 'text-red-400' : 'text-white/80'}`}>
+                      <label className={`absolute left-0 -top-2 text-[12px] font-semibold transition-colors ${errors.model ? 'text-red-500' : 'text-ink/80'}`}>
                         Engagement Model <span className="text-amber">*</span>
                       </label>
                       <div className="relative w-full">
                         <select
-                          className={`w-full bg-transparent text-white font-light text-[16px] pb-2 border-b outline-none transition-colors cursor-pointer appearance-none
-                          ${errors.model ? 'border-red-400 bg-red-400/10' : 'border-white/20 focus:border-amber'}
+                          className={`w-full bg-transparent text-ink font-medium text-[16px] pb-2 border-b outline-none transition-colors cursor-pointer appearance-none
+                          ${errors.model ? 'border-red-500 bg-red-50' : 'border-ink/20 focus:border-amber'}
                         `}
                           value={formData.model}
                           onChange={(e) => handleChange("model", e.target.value)}
                         >
-                          <option value="" className="text-black bg-white">Select...</option>
+                          <option value="" className="text-ink/60 bg-white">Select...</option>
                           {["Ready to move in", "Built-to-suit (BTS)", "Plug & play", "No preferences"].map((o) => <option key={o} value={o} className="text-black bg-white">{o}</option>)}
                         </select>
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-white/40">
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-ink/40">
                           <ChevronDown size={14} />
                         </div>
                       </div>
                       {errors.model && (
-                        <div className="absolute -bottom-3 left-0 text-[10px] font-medium text-red-400 uppercase tracking-wider">{errors.model}</div>
+                        <div className="absolute -bottom-3 left-0 text-[10px] font-semibold text-red-500 uppercase tracking-wider">{errors.model}</div>
                       )}
                     </div>
 
                     <div className="relative pt-4 pb-1 w-full">
-                      <label className={`absolute left-0 -top-2 text-[12px] font-medium transition-colors ${errors.area ? 'text-red-400' : 'text-white/80'}`}>
+                      <label className={`absolute left-0 -top-2 text-[12px] font-semibold transition-colors ${errors.area ? 'text-red-500' : 'text-ink/80'}`}>
                         Size Requirement <span className="text-amber">*</span>
                       </label>
                       <div className="relative w-full">
                         <select
-                          className={`w-full bg-transparent text-white font-light text-[16px] pb-2 border-b outline-none transition-colors cursor-pointer appearance-none
-                          ${errors.area ? 'border-red-400 bg-red-400/10' : 'border-white/20 focus:border-amber'}
+                          className={`w-full bg-transparent text-ink font-medium text-[16px] pb-2 border-b outline-none transition-colors cursor-pointer appearance-none
+                          ${errors.area ? 'border-red-500 bg-red-50' : 'border-ink/20 focus:border-amber'}
                         `}
                           value={formData.area}
                           onChange={(e) => handleChange("area", e.target.value)}
                         >
-                          <option value="" className="text-black bg-white">Select...</option>
+                          <option value="" className="text-ink/60 bg-white">Select...</option>
                           {["Below 10,000 sq. ft.", "10,000–30,000 sq. ft.", "30,000–1,00,000 sq. ft.", "Above 1,00,000 sq. ft."].map((o) => <option key={o} value={o} className="text-black bg-white">{o}</option>)}
                         </select>
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-white/40">
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-ink/40">
                           <ChevronDown size={14} />
                         </div>
                       </div>
                       {errors.area && (
-                        <div className="absolute -bottom-3 left-0 text-[10px] font-medium text-red-400 uppercase tracking-wider">{errors.area}</div>
+                        <div className="absolute -bottom-3 left-0 text-[10px] font-semibold text-red-500 uppercase tracking-wider">{errors.area}</div>
                       )}
                     </div>
 
@@ -370,16 +370,16 @@ export default function Hero() {
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-6 flex justify-between items-center gap-4">
-                    <p className="text-[10px] text-white/40 leading-tight hidden sm:block w-1/2">
+                  <div className="mt-8 pt-6 flex justify-between items-center gap-4 border-t border-ink/5">
+                    <p className="text-[10px] text-ink/50 leading-tight hidden sm:block w-1/2 font-medium">
                       An executive will reach out to discuss availability and next steps.
                     </p>
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="group flex flex-row justify-center items-center bg-amber text-ink hover:bg-white transition-colors px-6 py-3 w-full sm:w-auto disabled:opacity-50 rounded-md"
+                      className="group flex flex-row justify-center items-center bg-amber text-ink hover:bg-ink hover:text-white transition-colors px-6 py-3 w-full sm:w-auto disabled:opacity-50 rounded-md"
                     >
-                      <span className="text-[11px] uppercase tracking-widest font-semibold mr-3">{submitting ? "Sending…" : "Request Callback"}</span>
+                      <span className="text-[11px] uppercase tracking-widest font-bold mr-3">{submitting ? "Sending…" : "Request Callback"}</span>
                       <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
